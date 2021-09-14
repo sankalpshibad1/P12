@@ -37,14 +37,25 @@ function draw() {
 
   rabbit.x = World.mouseX;
 
-
+  var select_sprites = Math.round(random(1,3));
+  
+  if (World.frameCount % 80 == 0) {
+    if (select_sprites == 1) {
+      createApples();
+    } else if (select_sprites == 2) {
+      createOrange();
+    } else {
+      createRed();
+    }
+  }
+  
   drawSprites();
 }
 
 function createApples(){
   
     apple = createSprite(random(50,350),40,10,10);
-    apple.velocityX = 3;
+    apple.velocityY = 3;
     apple.addImage(appleImg);
     apple.lifetime = 150;
     apple.scale = 0.07;
@@ -53,7 +64,7 @@ function createApples(){
 function createOrange(){
 
     orangeL = createSprite(random(50,350),40,10,10);
-    orangeL.velocityX = 3;
+    orangeL.velocityY = 3;
     orangeL.addImage(orangeImg);
     orangeL.lifetime = 150;
     orangeL.scale = 0.08;
@@ -64,7 +75,7 @@ function createOrange(){
 function createRed(){
 
   redL = createSprite(random(50,350),40,10,10);
-  redL.velocityX = 3;
+  redL.velocityY = 3;
   redL.addImage(redImg);
   redL.lifetime = 150;
   redL.scale = 0.06;
